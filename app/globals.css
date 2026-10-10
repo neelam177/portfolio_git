@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+.animated-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -10;
+  background: linear-gradient(180deg, #f8fdff 0%, #eef8fd 55%, #e6f3fb 100%);
+}
+
+/* =========================================================
+   SPHERE BASE (soft 3D look, no border, no blur)
+   ========================================================= */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 28%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(232, 246, 253, 0.95) 35%,
+    rgba(212, 235, 247, 0.95) 75%,
+    rgba(200, 227, 242, 0.95) 100%
+  );
+  box-shadow:
+    inset -20px -25px 50px rgba(150, 200, 230, 0.18),
+    0 25px 50px rgba(120, 180, 215, 0.10);
+  will-change: transform;
+  animation: bubbleFloat 20s ease-in-out infinite;
+}
+
+/* flat cyan accent dots */
+.bubble-accent {
+  background: #a8e6ff;
+  box-shadow: none;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   POSITIONS (based on the reference, 1910x912)
+   ========================================================= */
+.bubble-1  { width: 250px; height: 250px; top: 5%;  left: 8%;  animation-duration: 22s; }
+.bubble-2  { width: 100px; height: 100px; top: 10%; left: 2.5%; background: #d3eaf7; animation-duration: 16s; animation-delay: -4s; }
+.bubble-3  { width: 420px; height: 420px; top: 32%; left: -4.5%; animation-duration: 26s; animation-delay: -8s; }
+.bubble-4  { width: 60px;  height: 60px;  top: 26%; left: 2%;   animation-duration: 14s; }
+.bubble-5  { width: 350px; height: 350px; top: 71%; left: 1%;   animation-duration: 24s; animation-delay: -6s; }
+.bubble-6  { width: 170px; height: 170px; top: 46%; left: 18%;  opacity: 0.85; animation-duration: 18s; animation-delay: -3s; }
+.bubble-7  { width: 65px;  height: 65px;  top: 67%; left: 16.5%; animation-duration: 13s; }
+.bubble-8  { width: 60px;  height: 60px;  top: 70%; left: 25%;  background: #cfe5f4; animation-duration: 15s; animation-delay: -5s; }
+.bubble-9  { width: 360px; height: 360px; top: 38%; right: 9%;  animation-duration: 28s; animation-delay: -10s; }
+.bubble-10 { width: 160px; height: 160px; top: 17%; right: 6.5%; opacity: 0.85; animation-duration: 20s; animation-delay: -7s; }
+.bubble-11 { width: 80px;  height: 80px;  top: 20%; right: 5.7%; animation-duration: 12s; animation-delay: -2s; }   /* + bubble-accent */
+.bubble-12 { width: 40px;  height: 40px;  top: 33%; left: 64%;   animation-duration: 11s; }                         /* + bubble-accent */
+.bubble-13 { width: 300px; height: 300px; top: 65%; left: 58%;  animation-duration: 25s; animation-delay: -12s; }
+.bubble-14 { width: 200px; height: 200px; top: 80%; left: 26%;  opacity: 0.9; animation-duration: 21s; animation-delay: -9s; }
+
+/* =========================================================
+   ANIMATION (gentler than before)
+   ========================================================= */
+@keyframes bubbleFloat {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  25%  { transform: translate3d(14px, -12px, 0) scale(1.02); }
+  50%  { transform: translate3d(-10px, -24px, 0) scale(0.99); }
+  75%  { transform: translate3d(12px, -10px, 0) scale(1.02); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media (max-width: 768px) {
+  .bubble-1  { width: 140px; height: 140px; }
+  .bubble-3  { width: 240px; height: 240px; }
+  .bubble-5  { width: 200px; height: 200px; }
+  .bubble-9  { width: 220px; height: 220px; }
+  .bubble-13 { width: 180px; height: 180px; }
+  .bubble-14 { width: 120px; height: 120px; }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .bubble { animation: none; }
+}
