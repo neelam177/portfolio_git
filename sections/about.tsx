@@ -2,20 +2,16 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaArrowRight,
-} from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 // import type { IconType } from "react-icons";
 
 /* ---------- Data ---------- */
 
-
-
 const floatingChips = [
-  { label: "React", pos: "-left-3 top-6 sm:-left-8", delay: "0s" },
-  { label: "Laravel", pos: "-right-3 top-16 sm:-right-8", delay: "0.8s" },
-  { label: "Next.js", pos: "-left-3 bottom-14 sm:-left-10", delay: "1.6s" },
-  { label: "MySQL", pos: "-right-3 bottom-6 sm:-right-6", delay: "2.4s" },
+  { label: "React", pos: "-left-1 -top-4 sm:-left-8 sm:top-6", delay: "0s" },
+  { label: "Laravel", pos: "-right-1 top-16 sm:-right-8", delay: "0.8s" },
+  { label: "Next.js", pos: "-left-1 bottom-14 sm:-left-10", delay: "1.6s" },
+  { label: "MySQL", pos: "-right-1 bottom-6 sm:-right-6", delay: "2.4s" },
 ];
 
 /* ---------- Helpers ---------- */
@@ -114,7 +110,7 @@ export default function AboutPage() {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-center gap-16 lg:grid-cols-2 grid-cols-1 lg:gap-20">
           {/* ---------- Text ---------- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -127,7 +123,7 @@ export default function AboutPage() {
               Get To Know Me
             </span> */}
 
-            <h2 className="text-4xl font-bold tracking-tight text-[#2d2d2d] sm:text-5xl md:text-6xl">
+            <h2 className="text-4xl font-bold tracking-tight text-[#2d2d2d] sm:text-3xl md:text-6xl">
               About <span className="text-[#8fc1e3]">Me</span>
             </h2>
 
@@ -146,7 +142,6 @@ export default function AboutPage() {
                 solving complex problems and turning ideas into scalable,
                 user-friendly applications.
               </p>
-             
             </div>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -170,14 +165,16 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-lg px-3 sm:px-0"
+            className="relative mx-auto w-full min-w-0 max-w-lg px-3 sm:px-0"
           >
             {/* Floating tech chips */}
             {floatingChips.map((c) => (
               <span
                 key={c.label}
-                style={{ animation: `aboutFloat 5s ease-in-out ${c.delay} infinite` }}
-                className={`about-float absolute z-20 rounded-full border border-[#8fc1e3]/40 bg-white px-3 py-1.5 text-xs font-semibold text-[#4285b4] shadow-[0_8px_20px_rgba(143,193,227,0.3)] sm:px-4 sm:text-sm ${c.pos}`}
+                style={{
+                  animation: `aboutFloat 5s ease-in-out ${c.delay} infinite`,
+                }}
+                className={`about-float absolute z-20 rounded-full border border-[#8fc1e3]/40 bg-white px-3 py-1.5 text-xs font-bold text-[#4285b4] shadow-[0_8px_20px_rgba(143,193,227,0.3)] sm:px-4 sm:text-sm ${c.pos}`}
               >
                 {c.label}
               </span>
@@ -209,26 +206,38 @@ export default function AboutPage() {
               </div>
 
               {/* Code */}
-              <pre className="overflow-x-auto p-5 font-mono text-[12.5px] leading-7 sm:p-7 sm:text-sm">
+              <pre className="overflow-x-auto p-3 md:p-5 text-[12.5px] md:leading-7 sm:p-7 sm:text-sm">
                 <code>
                   <span className="text-[#c678dd]">const</span>{" "}
                   <span className="text-[#4285b4]">developer</span>{" "}
                   <span className="text-gray-500">=</span>{" "}
                   <span className="text-gray-500">{"{"}</span>
                   {"\n"}
-                  {"  "}name: <span className="text-[#2e9d6a]">&quot;Neelam Gupta&quot;</span>,
-                  {"\n"}
-                  {"  "}role: <span className="text-[#2e9d6a]">&quot;Full Stack Developer&quot;</span>,
-                  {"\n"}
-                  {"  "}status: <span className="text-[#2e9d6a]">&quot;Working since 16 Mar 2026&quot;</span>,
-                  {"\n"}
+                  {"  "}name:{" "}
+                  <span className="text-[#2e9d6a]">
+                    &quot;Neelam Gupta&quot;
+                  </span>
+                  ,{"\n"}
+                  {"  "}role:{" "}
+                  <span className="text-[#2e9d6a]">
+                    &quot;Full Stack Developer&quot;
+                  </span>
+                  ,{"\n"}
+                  {"  "}status:{" "}
+                  <span className="text-[#2e9d6a]">
+                    &quot;Working since 16 Mar 2026&quot;
+                  </span>
+                  ,{"\n"}
                   {"  "}stack: [
                   <span className="text-[#2e9d6a]">&quot;React&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;Laravel&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;TS&quot;</span>],
                   {"\n"}
-                  {"  "}loves: <span className="text-[#2e9d6a]">&quot;Scalable apps&quot;</span>,
-                  {"\n"}
+                  {"  "}loves:{" "}
+                  <span className="text-[#2e9d6a]">
+                    &quot;Scalable apps&quot;
+                  </span>
+                  ,{"\n"}
                   {"  "}learning: <span className="text-[#c678dd]">true</span>
                   <span className="about-blink ml-0.5 inline-block h-4 w-[2px] translate-y-0.5 bg-[#8fc1e3] [animation:aboutBlink_1s_steps(1)_infinite]" />
                   {"\n"}
