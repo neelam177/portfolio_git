@@ -86,7 +86,7 @@ export default function AboutPage() {
   return (
     <section
       id="about"
-      className="relative z-10 overflow-hidden bg-[#fafbfc] px-5 py-20 sm:px-8 lg:py-28 h-screen"
+      className="relative z-10 overflow-hidden bg-[#fafbfc] px-5 py-20 sm:px-8 lg:py-28 lg:min-h-screen lg:items-center lg:flex"
     >
       <style>{`
         @keyframes aboutFloat {
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
             <div className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-[#8fc1e3] to-[#1fc3ff]" />
 
-            <div className="mt-8 space-y-5 text-base text-justify leading-8 text-gray-600 sm:text-lg">
+            <div className="mt-8 space-y-3 md:space-y-5 text-base text-justify leading-7 md:leading-8 text-gray-600 sm:text-lg">
               <p>
                 I&apos;m a passionate <Hl>Full Stack Developer</Hl>, building
                 real-world web applications that bridge the gap between design
