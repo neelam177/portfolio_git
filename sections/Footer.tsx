@@ -91,9 +91,9 @@ export default function Footer() {
         className="pointer-events-none absolute -left-40 top-10 h-72 w-72 rounded-full bg-[#8fc1e3]/10 blur-[100px]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-10">
+      <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-14 lg:px-8 lg:py-10">
         {/* Main footer */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:gap-16">
+        <div className="grid gap-6 md:gap-12 sm:grid-cols-2 lg:gap-16">
           {/* About */}
           <div>
             <Link
@@ -210,7 +210,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-10 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
+        <div className="my-5 md:my-10 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">

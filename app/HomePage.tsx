@@ -10,7 +10,7 @@ export const HomePage = () => {
       animate={{ opacity: 1, y: 20 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-      <section className="relative z-10 flex min-h-[calc(100vh-90px)] flex-col items-center justify-center px-6 text-center">
+      <section id="home" className="relative z-10 flex min-h-[calc(100vh-90px)] flex-col items-center justify-center px-6 text-center">
         {/* Name */}
         <h1 className="text-3xl font-bold tracking-tight text-[#2d2d2d] sm:text-3xl md:text-6xl">
           Neelam <span className="text-[#8fc1e3]">Gupta</span>

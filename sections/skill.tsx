@@ -160,10 +160,10 @@ export default function SkillPage() {
 
                         {/* Technology icon */}
                         <div
-                          className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm transition-transform duration-300 group-hover/skill:scale-110"
+                          className="relative flex md:h-10 md:w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm transition-transform duration-300 group-hover/skill:scale-110"
                         >
                           <SkillIcon
-                            size={23}
+                            size={20}
                             style={{ color: skill.color }}
                             aria-hidden="true"
                           />
@@ -171,7 +171,7 @@ export default function SkillPage() {
 
                         {/* Technology name */}
                         <div className="relative min-w-0 flex-1">
-                          <span className="block break-words text-sm font-semibold leading-5 text-gray-700 transition-colors duration-300 group-hover/skill:text-[#4285b4]">
+                          <span className="block break-words text-xs md:text-sm font-bold leading-5 text-gray-700 transition-colors duration-300 group-hover/skill:text-[#4285b4]">
                             {skill.name}
                           </span>
                         </div>
