@@ -233,7 +233,7 @@ export default function AboutPage() {
                   <span className="text-[#2e9d6a]">&quot;Laravel&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;TS&quot;</span>],
                   {"\n"}
-                  {"  "}loves:{" "}
+                  {"  "}<span className="text-black">loves:</span>{" "}
                   <span className="text-[#2e9d6a]">
                     &quot;Scalable apps&quot;
                   </span>
