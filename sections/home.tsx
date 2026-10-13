@@ -16,19 +16,40 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("#home");
+  const [active, setActive] = useState("home");
 
+  // Navbar background on scroll + highlight Contact at the page bottom
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    const handleHash = () => setActiveHash(window.location.hash || "#home");
-
-    handleHash();
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("hashchange", handleHash);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleHash);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 4) {
+        setActive("contact");
+      }
     };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll-spy: the section crossing the middle of the screen is active
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.replace("/#", ""));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   // Close menu with Escape and lock page scroll while it's open
@@ -42,7 +63,12 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const isActive = (href: string) => href === `/${activeHash}`;
+  const isActive = (href: string) => href === `/#${active}`;
+
+  const handleLinkClick = (href: string) => {
+    setActive(href.replace("/#", ""));
+    setIsOpen(false);
+  };
 
   return (
     <nav
@@ -56,7 +82,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         <Link
           href="/#home"
-          onClick={() => setIsOpen(false)}
+          onClick={() => handleLinkClick("/#home")}
           className="text-2xl font-bold text-gray-800"
         >
           Neelam
@@ -68,6 +94,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
+                onClick={() => handleLinkClick(link.href)}
                 className={`group relative py-2 text-[17px] font-medium transition-colors duration-300 ${
                   isActive(link.href)
                     ? "text-[#8fc1e3]"
@@ -85,7 +112,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop resume button (hidden on phone) */}
+        {/* Desktop resume button */}
         <a
           href="/NeelamGupta.pdf"
           download="Neelam_Resume.pdf"
@@ -106,9 +133,9 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Phone menu panel */}
+      {/* Phone menu panel (h-screen removed) */}
       <div
-        className={`absolute left-0 h-screen top-full w-full overflow-hidden bg-white shadow-md transition-all duration-300 ease-in-out md:hidden ${
+        className={`absolute h-screen left-0 top-full w-full overflow-hidden bg-white shadow-md transition-all duration-300 ease-in-out md:hidden ${
           isOpen
             ? "max-h-[calc(100vh-72px)] opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
@@ -119,7 +146,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleLinkClick(link.href)}
                 className={`block rounded-lg px-4 py-3 text-[17px] font-medium transition-colors ${
                   isActive(link.href)
                     ? "bg-[#eaf4fb] text-[#8fc1e3]"
@@ -132,7 +159,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Resume button inside the menu */}
         <div className="border-t border-gray-100 p-4">
           <a
             href="/NeelamGupta.pdf"
