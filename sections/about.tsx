@@ -206,7 +206,7 @@ export default function AboutPage() {
               </div>
 
               {/* Code */}
-              <pre className="overflow-x-auto p-3 md:p-5 text-[11px] md:text-[12.5px] md:leading-7 sm:p-7 sm:text-sm">
+              <pre className="overflow-x-auto p-3 md:p-5 text-[11px] md:text-[14px] md:leading-7 sm:p-7 sm:text-sm">
                 <code>
                   <span className="text-[#c678dd]">const</span>{" "}
                   <span className="text-[#4285b4]">developer</span>{" "}
@@ -228,7 +228,7 @@ export default function AboutPage() {
                     &quot;Working since 16 Mar 2026&quot;
                   </span>
                   ,{"\n"}
-                  {"  "} <span className="text-black">stack: [</span>
+                  {"  "}<span className="text-black">stack:[</span>
                   <span className="text-[#2e9d6a]">&quot;React&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;Laravel&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;TS&quot;</span>],
