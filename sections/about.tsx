@@ -206,29 +206,29 @@ export default function AboutPage() {
               </div>
 
               {/* Code */}
-              <pre className="overflow-x-auto p-3 md:p-5 text-[12.5px] md:leading-7 sm:p-7 sm:text-sm">
+              <pre className="overflow-x-auto p-3 md:p-5 text-[11px] md:text-[12.5px] md:leading-7 sm:p-7 sm:text-sm">
                 <code>
                   <span className="text-[#c678dd]">const</span>{" "}
                   <span className="text-[#4285b4]">developer</span>{" "}
                   <span className="text-gray-500">=</span>{" "}
                   <span className="text-gray-500">{"{"}</span>
                   {"\n"}
-                  {"  "}name:{" "}
+                  {"  "}<span className="text-black">name:</span>{" "}
                   <span className="text-[#2e9d6a]">
                     &quot;Neelam Gupta&quot;
                   </span>
                   ,{"\n"}
-                  {"  "}role:{" "}
+                  {"  "}<span className="text-black">role:</span>{" "}
                   <span className="text-[#2e9d6a]">
                     &quot;Full Stack Developer&quot;
                   </span>
                   ,{"\n"}
-                  {"  "}status:{" "}
+                  {"  "}<span className="text-black">status:</span>{" "}
                   <span className="text-[#2e9d6a]">
                     &quot;Working since 16 Mar 2026&quot;
                   </span>
                   ,{"\n"}
-                  {"  "}stack: [
+                  {"  "} <span className="text-black">stack: [</span>
                   <span className="text-[#2e9d6a]">&quot;React&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;Laravel&quot;</span>,{" "}
                   <span className="text-[#2e9d6a]">&quot;TS&quot;</span>],
@@ -238,7 +238,7 @@ export default function AboutPage() {
                     &quot;Scalable apps&quot;
                   </span>
                   ,{"\n"}
-                  {"  "}learning: <span className="text-[#c678dd]">true</span>
+                  {"  "}<span className="text-black">learning:</span><span className="text-[#c678dd]">true</span>
                   <span className="about-blink ml-0.5 inline-block h-4 w-[2px] translate-y-0.5 bg-[#8fc1e3] [animation:aboutBlink_1s_steps(1)_infinite]" />
                   {"\n"}
                   <span className="text-gray-500">{"};"}</span>
